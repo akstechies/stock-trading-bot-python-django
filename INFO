@@ -1,0 +1,51 @@
+https://youtu.be/O3O1z5hTdUM
+
+TILL 02:14:40 
+
+Create django project in src whith .venv activated
+~ django-admin startproject cfehome .
+
+
+copy manage.py from src to nbs and change to setup.py
+
+
+docker compose up ~ to start
+docker compose up -d ~ this -d helps to run in background
+docker compose ps ~ to check running containers
+
+docker compose stop ~ to stop running images
+docker compose down ~ to take it down, it will remove it, but it keeps the data
+docker compose down -v ~ with -v flag it removes the data
+
+NOTE: BCOZ of this delete feature it is not recommended to use docker for data as it is very easy to delete
+
+
+============
+
+
+python manage.py migrate ~ to migrate the database
+python manage.py createsuperuser ~ to create super user for admin login and related stuff
+<!-- Created: admin - 12345 -->
+
+NOTE: if I run docker compose down everything will be removed and so queries will show error
+
+
+==========
+
+we also created an account on timescale db then created a service and then we got a postgres connection string that we pasted in env
+then we again `migrated` created ~ `python manage.py createsuperuser`
+<!-- 
+polygon API URL: https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-02-10?adjusted=true&sort=asc&apiKey=
+ -->
+
+
+Create a django app in src folder
+- python manage.py startapp market
+
+run migrations using
+- python manage.py makemigrations
+- python manage.py migrate
+
+
+
+@dataclass is a Python decorator from the dataclasses module that automatically generates special methods for a class, such as __init__, __repr__, __eq__, and others. It is used to simplify the creation of classes that primarily store data.
